@@ -1,0 +1,59 @@
+{
+  "name": "rule-link",
+  "version": "0.1.0-alpha.1",
+  "description": "A CLI tool to manage AI programming tool rule files through symlinks",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/hangboss1761/rule-link#readme",
+  "bugs": {
+    "url": "https://github.com/hangboss1761/rule-link/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hangboss1761/rule-link.git"
+  },
+  "author": "hangboss1761",
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "rule-link": "./bin/rule-link.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./cli": "./dist/cli.js",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp && npm publish"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.8.3",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "bumpp": "^10.1.0",
+    "tsdown": "^0.11.9",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
+}
